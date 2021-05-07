@@ -10,6 +10,13 @@ header {
     color: white;
     padding: 15px 0;
     font-size: 15px;
+    position: absolute;
+    z-index: 30;
+}
+
+div {
+    padding: 0;
+    margin: 0;
 }
 
 .container-fluid{
@@ -19,7 +26,13 @@ header {
 }
 
 a {
-    margin: 10px 10px;
+    padding: 0;
+    margin: 0px;
+}
+
+h2{
+    margin: 0;
+    padding: 0;
 }
 
 .lang__current {
@@ -54,6 +67,7 @@ header .container-fluid ul li{
 header .container-fluid ul li a{
     color: white;
     text-decoration: none;
+    margin: 10px 10px;
 }
 
 header .container-fluid div .lang__current i {
@@ -65,19 +79,40 @@ header .container-fluid div .lang__current i {
 /* ------------------------------- 
     Main
 */
-main 
-main .container .container__background img {
+img {
     max-width: 100vw;
+    padding: 0;
+    margin: 0;
 }
-
-main .container .container__center {
+main .slider .slider__images .slider__images-item {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    justify-content: center;
+    position: relative;
 }
 
-main .container .container__center h1{
-    font-size: 83px;
+main .slider .slider__images .slider__images-item .text {
+    Top: 50%;
+	Left: 50%;
+	Transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+main .slider .slider__images .slider__images-item .text h2{
+    font-size: 83.33px;
     color: #bea67c;
+    margin: 50px 0;
+}
+
+main .slider .slider__images .slider__images-item .text .btn{
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px 50px;
+    Top: 50%;
+	Left: 50%;
+	Transform: translate(-50%, -50%);
+    border-style: solid;
+}
+
+main .slider .slider__images .slider__images-item .text .btn i {
+    margin-left: 18px;
 }
