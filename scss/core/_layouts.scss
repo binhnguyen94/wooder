@@ -1,7 +1,7 @@
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-smoothing: antialiased;
+    // font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     box-sizing: border-box;
     appearance: none;
@@ -42,6 +42,7 @@ body {
     @media (min-width: 768px){
         .container {
             max-width: 720px;
+            
         }
     }
 

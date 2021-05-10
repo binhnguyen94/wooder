@@ -140,7 +140,6 @@ table {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -203,6 +202,24 @@ body .container {
   body .container {
     max-width: 1010px;
   }
+}
+
+.btnmenu {
+  width: 30px;
+  height: 3px;
+  background: #bea67c;
+}
+
+.btnmenu .btnmenu:after {
+  width: 30px;
+  height: 3px;
+  background: #bea67c;
+}
+
+.btnmenu .btnmenu:before {
+  width: 30px;
+  height: 3px;
+  background: #bea67c;
 }
 
 /** Navigation, Header, Footer*/
