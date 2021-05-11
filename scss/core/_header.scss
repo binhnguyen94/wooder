@@ -6,6 +6,7 @@ header {
     position: fixed;
     left: 0;
     top: 0;
+    mix-blend-mode: difference;
     z-index: 100;
 
     .container-fluid {
@@ -13,6 +14,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: relative;
 
         .logo{
             .hidden{
@@ -37,8 +39,8 @@ header {
                     padding: 0 30px;
                     &:hover{
                         transition: 0.3s;
-                        opacity: 0.5;
-                        // color: $yellow-cl;
+                        // opacity: 0.5;
+                        color: #bea67c;
                     }
                 }
             }
@@ -47,19 +49,42 @@ header {
             .lang{
                 &__current{
                     color: #fff;
-                    display: inline-block;
+                    display: inline-flex;
                     cursor: pointer;
+                    i{
+                        margin: 0 5px;
+                        @include midflex;  
+                    }
                 }
                 &__option {
                     display: none;
+                    position: absolute;
+                    padding: 10px 0;
                     a{
-                        color: #bea67c;
+                        color: #fff;
                         height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        padding: 10px 0;
+                        text-decoration: none;
                     }
                 }
                 &:hover{
-                    &__option{
+                    .lang__current{
+                        span{
+                            transition: 0.3s;
+                            // opacity: 0.5;
+                            color: #bea67c;
+                        }    
+                    }
+                    .lang__option{
                         display: block;
+                        a:hover{
+                            transition: 0.3s;
+                            // opacity: 0.5;
+                            color: #bea67c;
+                        }
+                        
                     }
                 }
             }
