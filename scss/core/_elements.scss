@@ -1,3 +1,44 @@
 // img {
 //     max-width: 100%;
 // }
+.textbox{
+    h2{
+      @include text($fz-title, pb, $lh-title, $text-black-cl, uppercase);
+      display: flex;
+      align-items: center;
+      &::before{
+        content: "";
+        width: 80px;
+        height: 1px;
+        margin-right: 20px;
+        background: $line-cl;
+        display: block;
+      }
+    } 
+    span{
+      font-size: $fz-text;
+      line-height: $lh-text;
+      color: $text-cl;
+      margin-bottom: 38px;
+      margin-left: 100px;
+      margin-right: 60px;
+      display: block;
+    }
+    a{
+      text-decoration: none;
+      color: $text-black-cl;
+      text-transform: uppercase;
+      font-family: pb;
+      margin-left: 100px;
+      letter-spacing: 3px;
+      &::after{
+          content: "";
+          width: 40px;
+          height: 1px;
+          margin-top: 7px;
+          margin-left: 100px;
+          background: $yellow-cl;
+          display: block;
+      }
+    } 
+  }

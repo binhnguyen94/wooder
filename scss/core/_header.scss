@@ -8,7 +8,7 @@ header {
     top: 0;
     mix-blend-mode: difference;
     z-index: 100;
-
+    
     .container-fluid {
         height: 100%;
         display: flex;
@@ -93,6 +93,166 @@ header {
                     
                 }
             }
+        }
+    }
+}
+
+@include tabletLc {
+    header{
+        .container-fluid{
+            .menu{
+                display: none;
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .btnmenu{
+                    padding-left: 50px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    span{
+                        width: 50px;
+                        height: 3px;
+                        margin: 10px 0;
+                        background: $yellow-cl;
+                        display: block;
+                    }
+                    &:before{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                    &:after{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                }
+            }   
+        }
+    }
+}
+
+@include tablet {
+    header{
+        .container-fluid{
+            .menu{
+                display: none;
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .btnmenu{
+                    padding-left: 50px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    span{
+                        width: 50px;
+                        height: 3px;
+                        margin: 10px 0;
+                        background: $yellow-cl;
+                        display: block;
+                    }
+                    &:before{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                    &:after{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                }
+            } 
+        }
+    }
+}
+
+@include mobileLc {
+    header{
+        .container-fluid{
+            .menu{
+                display: none;
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .btnmenu{
+                    padding-left: 50px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    span{
+                        width: 50px;
+                        height: 3px;
+                        margin: 10px 0;
+                        background: $yellow-cl;
+                        display: block;
+                    }
+                    &:before{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                    &:after{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                }
+            } 
+        }
+    }
+}
+
+@include mobile {
+    header{
+        .container-fluid{
+            .menu{
+                display: none;
+            }
+            .right{
+                display: flex;
+                align-items: center;
+                .btnmenu{
+                    padding-left: 50px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    cursor: pointer;
+                    span{
+                        width: 50px;
+                        height: 3px;
+                        margin: 10px 0;
+                        background: $yellow-cl;
+                        display: block;
+                    }
+                    &:before{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                    &:after{
+                        content: "";
+                        width: 50px;
+                        height: 3px;
+                        background: $yellow-cl;
+                    }
+                }
+            } 
         }
     }
 }

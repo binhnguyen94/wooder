@@ -9,7 +9,11 @@ $black-bg-cl: $black-cl;
 
 // text color
 $text-cl: #464646;
-$text-black-cl: #000000;
+$text-black-cl: #010101;
+
+//line color
+$line-cl: #555555;
+$line-yellow-cl: #bea67c;
 
 // Timing transition
 $t: 0.4s;
@@ -20,6 +24,10 @@ $lh-text: 22px;
 
 $fz-text-m: 16px;
 $lh-text-m: 22px;
+
+//  Font size title
+$fz-title: 40px;
+$lh-title: 84px;
 //============================================================//
 
 /*BOXED LAYOUT*/
