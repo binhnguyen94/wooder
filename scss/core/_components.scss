@@ -1,0 +1,62 @@
+.textbox{
+    --pdleft: 100px;
+    --pdright: 15px;
+    padding-left: var(--pdleft);
+    padding-top: 50px;
+    padding-right: var(--pdright);
+    h2{
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        @include text($fz-title, pb, $lh-title, $text-black-cl, uppercase);
+        &::before{
+            content: "";
+            width: 80px;
+            height: 2px;
+            background: $line-cl;
+            position: relative;
+            margin-left: -80px;
+            right: 15px;
+        }
+    } 
+    >p{
+      font-size: $fz-text;
+      line-height: $lh-text;
+      color: $text-cl;
+      margin-bottom: 25px;
+      display: block;
+    }
+    &.--textright{
+        text-align: right;
+        padding-left: var(--pdright);
+        padding-right: var(--pdleft);
+        h2{
+            flex-direction: row-reverse;
+            &::before{
+                right: initial;
+                margin-left: initial;
+                margin-right: -80px;
+                left: 15px;
+            }
+        }
+    }
+
+    // screen tablet
+    @include tablet{
+        --pdleft: 0px;
+        --pdright: 10px;
+        padding-left: var(--pdleft);
+        padding-top: 15px;
+        padding-right: var(--pdright);
+        h2{
+            &::before{
+                display: none;
+            }
+        }
+    }
+
+    // screen mobile
+    @include mobile{
+        
+    }
+}

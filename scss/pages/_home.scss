@@ -26,43 +26,6 @@
           letter-spacing: 20px;
           color: $yellow-cl;
           margin: 45px 0;
-        }
-        .btn{
-          border: 1px solid $white-cl;
-          text-transform: uppercase;
-          text-decoration: none; 
-          color: $white-cl;
-          width: max-content;
-          padding: var(--pdborder);
-          letter-spacing: 5px;
-          display: flex;
-          margin: 0 auto;
-          position: relative;
-          @include transition($t);
-          i{
-            margin-left: 15px;
-          }
-          &:before{
-            content: "";
-            width: 100%;
-            height: 100%;
-            background: $yellow-cl;
-            position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            display: block;
-            
-            @include transition(transform $t);
-            @include transform(scaleX(0));
-            @include transform-origin(right);
-          }
-          &:hover:before{
-            background: $yellow-cl;
-            @include transition(transform $t);
-            @include transform(scaleX(1));
-            @include transform-origin(left);
-          }
         }     
       }
       .banner{
@@ -172,7 +135,6 @@
     }
   }
 }
-
 @include tablet{
   .slider{
    height: 600px;
@@ -281,30 +243,47 @@
 
 // Component Product
 .product{
-  width: 100%;
-  height: 100%;
-  position: relative;
-  .container{
-    width: 100%;
-    height: 100%;
-  }
+  --Widthimg: 520px;
   &__list{
-    width: 100%;
-    height: 100%;
-    
     &-content{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding-bottom: var(--pdsection);
+      display: grid;
+      grid-template-columns: 1fr var(--Widthimg);
       &.--decor{
-        @include transform(rotate(0deg));
+        margin: 90px 0;
+        grid-template-columns: var(--Widthimg) 1fr ;
+        .textbox{
+          grid-area: 1/2/2/3;
+        }
+        .image{
+          grid-area: 1/1/2/2;
+        }
+      }
+    }
+  }
+  // screen tablet
+  @include tablet{
+    --Widthimg: 400px;
+  }
+
+  // screen mobile
+  @include mobile{
+    &__list{
+      &-content{
+        grid-template-columns: 1fr !important;
+        &.--decor{
+          margin-top: 60px 0;
+          .textbox{
+            grid-area: initial;
+          }
+          .image{
+            grid-area: initial;
+          }
+        }
       }
     }
   }
 }
+
 
 // Component Background
 
@@ -315,3 +294,6 @@
 // Component News
 
 // Component Image move
+
+
+
