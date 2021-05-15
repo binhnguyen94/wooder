@@ -1,8 +1,7 @@
 
 /* ------------------------------- 
-    Main
+    Component Silder
 */
-// Component Silder
 .slider{
   width: 100%;
   height: 100vh;
@@ -135,6 +134,7 @@
     }
   }
 }
+// screen tablet of Slider
 @include tablet{
   .slider{
    height: 600px;
@@ -147,7 +147,7 @@
    }
   }
 }
-
+// screen tablet of Slider
 @include mobile {
   .slider{
     height: 600px;
@@ -241,7 +241,9 @@
   }
 }
 
-// Component Product
+/** ------------------------------- 
+  Component Product
+*/ 
 .product{
   --Widthimg: 520px;
   &__list{
@@ -260,18 +262,36 @@
       }
     }
   }
-  // screen tablet
-  @include tablet{
+  &__video{
+    &-list{
+      display: flex;
+      position: relative;
+      .item{
+        .video-circle{
+          &:first-child{
+            border-radius: 200px;
+            width: 200px;
+            height: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+// screen tablet of Product
+@include tablet{
+  .product{
     --Widthimg: 400px;
   }
-
-  // screen mobile
-  @include mobile{
+}
+// screen mobile of Product
+@include mobile{
+  .product{
     &__list{
       &-content{
         grid-template-columns: 1fr !important;
         &.--decor{
-          margin-top: 60px 0;
+          margin: 60px 0;
           .textbox{
             grid-area: initial;
           }
@@ -284,16 +304,25 @@
   }
 }
 
+/** ------------------------------- 
+  Component Background
+*/ 
 
-// Component Background
+/** ------------------------------- 
+  Component About
+*/
 
-// Component About
+/** ------------------------------- 
+  Component Gallery
+*/
 
-// Component Gallery
+/** ------------------------------- 
+  Component  News
+*/
 
-// Component News
-
-// Component Image move
+/** ------------------------------- 
+  Component Image move
+*/ 
 
 
 

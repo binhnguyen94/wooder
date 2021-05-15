@@ -8,6 +8,7 @@
         position: relative;
         display: inline-flex;
         align-items: center;
+        letter-spacing: 2px;
         @include text($fz-title, pb, $lh-title, $text-black-cl, uppercase);
         &::before{
             content: "";
@@ -40,23 +41,55 @@
             }
         }
     }
+    &.--text{
+        width: 480px;
+        --pdleft: 0;
+        --pdright: 0;
+        text-align: center;
+        margin: auto;
+        h2{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: end;
+            position: relative;
+            line-height: 60px;
+            &::before{
+                width: 38px;
+                height: 3px;
+                background: $yellow-cl;
+                text-align: center;
+                left: 35px;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
 
-    // screen tablet
-    @include tablet{
+  // screen tablet
+@include tablet{
+    .textbox{
         --pdleft: 0px;
         --pdright: 10px;
         padding-left: var(--pdleft);
-        padding-top: 15px;
+        padding-top: 0;
         padding-right: var(--pdright);
         h2{
             &::before{
                 display: none;
             }
         }
-    }
+    } 
+}
 
-    // screen mobile
-    @include mobile{
-        
+// screen mobile
+@include mobile{
+    .textbox{
+        text-align: center;
+        h2{
+            font-size: 35px;
+        }
+        &.--textright{
+            text-align: center;
+        }
     }
 }
