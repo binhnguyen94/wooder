@@ -1,199 +1,77 @@
-
-/* ------------------------------- 
+.homepage{
+  /* ------------------------------- 
     Component Silder
-*/
-.slider{
-  width: 100%;
-  height: 100vh;
-  position: relative;
-  --fztitle: 84px;
-  --pdborder: 15px 50px;
-  &__images{
+  */
+  .slider{
     width: 100%;
-    height: 100%;
-    &-item{
+    height: 100vh;
+    position: relative;
+    --fztitle: 84px;
+    --pdborder: 15px 50px;
+    &__images{
       width: 100%;
       height: 100%;
-      position: relative;
-      .text{
-        @include mid;
-        z-index: 100;
-        h2{
-          font-size: var(--fztitle);
-          text-transform: uppercase;
-          font-family: pb;
-          letter-spacing: 20px;
-          color: $yellow-cl;
-          margin: 45px 0;
-        }     
-      }
-      .banner{
-        height: 100%;
+      &-item{
         width: 100%;
-        @include midimg(initial);
+        height: 100%;
+        position: relative;
+        .text{
+          @include mid;
+          z-index: 100;
+          h2{
+            font-size: var(--fztitle);
+            text-transform: uppercase;
+            font-family: pb;
+            letter-spacing: 20px;
+            color: $yellow-cl;
+            margin: 45px 0;
+          }     
+        }
+        .banner{
+          height: 100%;
+          width: 100%;
+          @include midimg(initial);
+        }
       }
     }
-  }
-  &__bottom {
-    width: 100%;
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    .container-fluid{
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .paging{
-      display: flex;
-      align-items: center;
-      span{
-        font-size: 48px;
-        color: $yellow-cl;
-        font-family: pb;
-        line-height: normal;
+    &__bottom {
+      width: 100%;
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      .container-fluid{
         display: flex;
         align-items: center;
-        &:before{
-          content: "";
-          width: 42px;
-          height: 4px;
-          background: $yellow-cl;
-          margin-right: 12px;
-          display: inline-block;
-        }
+        justify-content: space-between;
       }
-      ul{
-        margin-left: 15px;
-        li{
-          width: 10px;
-          height: 10px;
-          background: $white-cl;
-          @include br(50%);
-          opacity: 0.5;
-          margin-right: 12px;
-          display: inline-block;
-          cursor: pointer;
-          flex-shrink: 0;
-          @include transform($t);
-          &:hover,
-          &.active{
-            background-color: $yellow-cl;
-            opacity: 1;
-            @include transform($t);
-          }
-        }
-      }
-    }
-    .mouse{
-      position: absolute;
-      left: 50%;
-      bottom: 15px;
-      @include transform(translateX(-50%));
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      img{
-        &:first-child{
-          width: 20px;
-          margin-bottom: 12px;
-        }
-      }
-      &__down{
-        @include animation(mymove 1s ease forwards infinite);
-
-        @include keyframes(mymove){
-          0%{
-            @include transform(translateY(0px));
-            opacity: 0;
-            @include transition($t);
-          }
-          100%{
-            @include transform(translateY(18px));
-            opacity: 1;
-            @include transition($t);
-          }
-        }
-      }
-    }  
-    .control{
-      display: flex;
-      &__btn{
-        border: 1px solid $white-cl;
-        padding: 15px 15px;
-        cursor: pointer;
-        &:last-child{
-          border-left: 0;
-        }
-        &:hover{
-          background: $yellow-cl;
-          @include transition($t);
-        }
-      }
-    }
-  }
-}
-// screen tablet of Slider
-@include tablet{
-  .slider{
-   height: 600px;
-   &__bottom{
-     .mouse{
-       &__img{
-         display: none;
-       }
-     }
-   }
-  }
-}
-// screen tablet of Slider
-@include mobile {
-  .slider{
-    height: 600px;
-    --fztitle: 60px;
-    --pdborder: 10px 20px;
-    &__images{
-      &-item{
-        .text{
-          h2{
-            letter-spacing: 10px;
-            margin: initial;
-          }
-          .btn{
-            top: 25px;
-            span{
-              font-size: 14px;
-              letter-spacing: 3px;
-            }
-          }
-        }
-      }
-    }
-    &__bottom{
       .paging{
         display: flex;
         align-items: center;
         span{
-          font-size: 30px;
+          font-size: 48px;
           color: $yellow-cl;
           font-family: pb;
           line-height: normal;
           display: flex;
           align-items: center;
           &:before{
-            display: none;
+            content: "";
+            width: 42px;
+            height: 4px;
+            background: $yellow-cl;
+            margin-right: 12px;
+            display: inline-block;
           }
         }
         ul{
-          margin-left: 10px;
+          margin-left: 15px;
           li{
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: $white-cl;
             @include br(50%);
             opacity: 0.5;
-            margin-right: 5px;
+            margin-right: 12px;
             display: inline-block;
             cursor: pointer;
             flex-shrink: 0;
@@ -211,22 +89,39 @@
         position: absolute;
         left: 50%;
         bottom: 15px;
-        // @include transform(translateX(-50%));
-        // display: flex;
-        // align-items: center;
-        // flex-direction: column;
+        @include transform(translateX(-50%));
+        display: flex;
+        align-items: center;
+        flex-direction: column;
         justify-content: center;
         img{
           &:first-child{
-            display: none;
+            width: 20px;
+            margin-bottom: 12px;
           }
         }
-      }
+        &__down{
+          @include animation(mymove 1s ease forwards infinite);
+
+          @include keyframes(mymove){
+            0%{
+              @include transform(translateY(0px));
+              opacity: 0;
+              @include transition($t);
+            }
+            100%{
+              @include transform(translateY(18px));
+              opacity: 1;
+              @include transition($t);
+            }
+          }
+        }
+      }  
       .control{
         display: flex;
         &__btn{
           border: 1px solid $white-cl;
-          padding: 10px 10px;
+          padding: 15px 15px;
           cursor: pointer;
           &:last-child{
             border-left: 0;
@@ -236,93 +131,281 @@
             @include transition($t);
           }
         }
-      }  
-    }
-  }
-}
-
-/** ------------------------------- 
-  Component Product
-*/ 
-.product{
-  --Widthimg: 520px;
-  &__list{
-    &-content{
-      display: grid;
-      grid-template-columns: 1fr var(--Widthimg);
-      &.--decor{
-        margin: 90px 0;
-        grid-template-columns: var(--Widthimg) 1fr ;
-        .textbox{
-          grid-area: 1/2/2/3;
-        }
-        .image{
-          grid-area: 1/1/2/2;
-        }
       }
     }
   }
-  &__video{
-    &-list{
-      display: flex;
-      position: relative;
-      .item{
-        .video-circle{
-          &:first-child{
-            border-radius: 200px;
-            width: 200px;
-            height: 200px;
+  // screen tablet of Slider
+  @include tablet{
+    .slider{
+    height: 600px;
+    &__bottom{
+      .mouse{
+        &__img{
+          display: none;
+        }
+      }
+    }
+    }
+  }
+  // screen tablet of Slider
+  @include mobile {
+    .slider{
+      height: 600px;
+      --fztitle: 60px;
+      --pdborder: 10px 20px;
+      &__images{
+        &-item{
+          .text{
+            h2{
+              letter-spacing: 10px;
+              margin: initial;
+            }
+            .btn{
+              top: 25px;
+              span{
+                font-size: 14px;
+                letter-spacing: 3px;
+              }
+            }
           }
         }
       }
+      &__bottom{
+        .paging{
+          display: flex;
+          align-items: center;
+          span{
+            font-size: 30px;
+            color: $yellow-cl;
+            font-family: pb;
+            line-height: normal;
+            display: flex;
+            align-items: center;
+            &:before{
+              display: none;
+            }
+          }
+          ul{
+            margin-left: 10px;
+            li{
+              width: 8px;
+              height: 8px;
+              background: $white-cl;
+              @include br(50%);
+              opacity: 0.5;
+              margin-right: 5px;
+              display: inline-block;
+              cursor: pointer;
+              flex-shrink: 0;
+              @include transform($t);
+              &:hover,
+              &.active{
+                background-color: $yellow-cl;
+                opacity: 1;
+                @include transform($t);
+              }
+            }
+          }
+        }
+        .mouse{
+          position: absolute;
+          left: 50%;
+          bottom: 15px;
+          // @include transform(translateX(-50%));
+          // display: flex;
+          // align-items: center;
+          // flex-direction: column;
+          justify-content: center;
+          img{
+            &:first-child{
+              display: none;
+            }
+          }
+        }
+        .control{
+          display: flex;
+          &__btn{
+            border: 1px solid $white-cl;
+            padding: 10px 10px;
+            cursor: pointer;
+            &:last-child{
+              border-left: 0;
+            }
+            &:hover{
+              background: $yellow-cl;
+              @include transition($t);
+            }
+          }
+        }  
+      }
     }
   }
-}
-// screen tablet of Product
-@include tablet{
+
+  /** ------------------------------- 
+    Component Product
+  */ 
   .product{
-    --Widthimg: 400px;
-  }
-}
-// screen mobile of Product
-@include mobile{
-  .product{
+    --Widthimg: 520px;
+    position: relative;
     &__list{
+      position: relative;
       &-content{
-        grid-template-columns: 1fr !important;
+        display: grid;
+        grid-template-columns: 1fr var(--Widthimg);
         &.--decor{
-          margin: 60px 0;
+          margin: 90px 0;
+          grid-template-columns: var(--Widthimg) 1fr ;
           .textbox{
-            grid-area: initial;
+            grid-area: 1/2/2/3;
           }
           .image{
-            grid-area: initial;
+            grid-area: 1/1/2/2;
+          }
+        }
+      }
+    }
+    &__video{
+      --Wvideo: 200px;
+      --Hvideo: 200px;
+      .product__video-list{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+        .item{
+          text-align: center;
+          &-circle{
+            width: var(--Wvideo);
+            height: var(--Hvideo);
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            z-index: 3;
+            border: 1px solid $white-cl;
+            cursor: pointer;
+            >img{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              @include transform(translate(-50%, -50%) scale(1));
+              min-width: 100%;
+              min-height: 100%;
+              max-width: 400px;
+              max-height: 400px;
+              object-fit: cover;
+              filter: grayscale(100%);
+              -webkit-filter: grayscale(100%);
+              -moz-filter: grayscale(100%);
+              @include transition($t);
+              &:hover{
+                @include transition($t);
+                filter: grayscale(100%) brightness(126%);
+                -webkit-filter: grayscale(100%) brightness(126%);
+                -moz-filter: grayscale(100%) brightness(126%);
+                @include transform(translate(-50%, -50%) scale(1.05));
+              }
+            }
+            .play-btn{
+              @include mid;
+            }
+            &::after{
+              content: "";
+              width: calc(100% + 15px);
+              height: calc(100% + 15px);
+              border-radius: 50%;
+              border: 15px solid $white-cl;
+              @include mid;
+              z-index: 0;
+              box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
+              -webkit-box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
+              -moz-box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);   
+            }
+          }
+          p{
+            &::before{
+              content: "";
+              width: 20px;
+              height: 2px;
+              background: $yellow-cl;
+              margin: 20px auto;
+              display: block;
+            }
           }
         }
       }
     }
   }
+  // screen tablet of Product
+  @include tablet{
+    .product{
+      --Widthimg: 400px;
+    }
+  }
+  // screen mobile of Product
+  @include mobile{
+    .product{
+      &__list{
+        &-content{
+          grid-template-columns: 1fr !important;
+          &.--decor{
+            margin: 60px 0;
+            .textbox{
+              grid-area: initial;
+            }
+            .image{
+              grid-area: initial;
+            }
+          }
+        }
+      }
+      &__video{
+        --Wvideo: 300px;
+        --Hvideo: 300px;
+        .product__video-list{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+  }
+
+  /** ------------------------------- 
+    Component Background
+  */ 
+  .background{
+    width: 100%;
+    height: auto;
+    background: url(../../img/background.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    .container{
+      height: 100%;
+      display: flex;
+    }
+    .textbox{
+      width: 600px;
+      padding: 180px 0;
+      h2{
+        &::before{
+          display: none;
+        }
+      }
+    }
+  }
+
+  /** ------------------------------- 
+    Component About
+  */
+
+  /** ------------------------------- 
+    Component Gallery
+  */
+
+  /** ------------------------------- 
+    Component  News
+  */
+
+  /** ------------------------------- 
+    Component Image move
+  */ 
 }
-
-/** ------------------------------- 
-  Component Background
-*/ 
-
-/** ------------------------------- 
-  Component About
-*/
-
-/** ------------------------------- 
-  Component Gallery
-*/
-
-/** ------------------------------- 
-  Component  News
-*/
-
-/** ------------------------------- 
-  Component Image move
-*/ 
-
-
-

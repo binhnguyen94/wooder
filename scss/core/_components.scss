@@ -19,7 +19,14 @@
             margin-left: -80px;
             right: 15px;
         }
-    } 
+    }
+    .yellow{
+        color: $yellow-cl;
+        line-height: 40px;
+    }
+    .white{
+        color: $white-cl;
+    }
     >p{
       font-size: $fz-text;
       line-height: $lh-text;
@@ -42,9 +49,11 @@
         }
     }
     &.--text{
-        width: 480px;
+        max-width: 480px;
         --pdleft: 0;
         --pdright: 0;
+        padding-right: 0;
+        padding-top: 0;
         text-align: center;
         margin: auto;
         h2{
@@ -90,6 +99,11 @@
         }
         &.--textright{
             text-align: center;
+        }
+        &.--text{
+            h2{
+                letter-spacing: normal;
+            }
         }
     }
 }
