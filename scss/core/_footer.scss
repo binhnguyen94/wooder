@@ -1,0 +1,17 @@
+footer{
+    width: 100%;
+    height: auto;
+    background: $black-bg-cl;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        .copy{
+            color: $white-cl;
+        }
+        .backtotop{
+            color: $white-cl;
+        }
+    }
+}
