@@ -22,10 +22,13 @@
     }
     .yellow{
         color: $yellow-cl;
-        line-height: 40px;
+        line-height: 50px;
     }
     .white{
         color: $white-cl;
+        padding-top: 20px;
+        padding-bottom: 45px;
+        margin: 0;
     }
     >p{
       font-size: $fz-text;
@@ -69,6 +72,15 @@
                 text-align: center;
                 left: 35px;
                 margin-bottom: 20px;
+            }
+        }
+    }
+    &.--about{
+        --pdleft: 70px;
+        padding-top: 60px;
+        h2{
+            &::before{
+                left: -40px;
             }
         }
     }

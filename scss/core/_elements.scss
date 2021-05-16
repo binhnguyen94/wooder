@@ -3,6 +3,7 @@ img {
     max-height: 100%;
 }
 .btnmain{
+  --pdborder: 15px 50px;
   border: 1px solid $white-cl;
   text-transform: uppercase;
   text-decoration: none; 
