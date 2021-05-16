@@ -7,11 +7,31 @@ footer{
         justify-content: space-between;
         align-items: center;
         padding: 15px 0;
+        position: relative;
         .copy{
             color: $white-cl;
         }
+        .logoft{
+            position: absolute;
+            left: 50%;
+            @include transform(translateX(-50%));
+        }
         .backtotop{
-            color: $white-cl;
+            a{
+                text-decoration: none;
+                color: $white-cl;
+            }
+        }
+    }
+    @include mobile{
+        .container{
+            flex-direction: column;
+            .logoft{
+                margin: 15px 0;
+                position: initial;
+                left: initial;
+                @include transform(initial);
+            }
         }
     }
 }

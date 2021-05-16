@@ -425,14 +425,35 @@
     Component About
   */
   .about{
-    .container{
+    --Withimg: 520px;
+    .about_row{
       display: grid;
-      grid-template-columns: 520px 1fr;
+      grid-template-columns: var(--Withimg) 1fr;
       .textbox{
         grid-area: 1/2/2/3;
       }
       .image{
         grid-area: 1/1/2/2;
+      }
+    }
+    @include tablet{
+      --Withimg: 400px;
+      .textbox{
+        margin-left: 0;
+        padding-left: 30px;
+        padding-top: 30px;
+      }
+    }
+    @include mobile{
+      .about_row{
+        grid-template-columns: 1fr;
+        .textbox{
+          padding-left: 0;
+          padding-top: 0;
+        }
+        .image{
+          grid-area: 2/1/2/3;
+        }
       }
     }
   }
@@ -444,18 +465,176 @@
     .gallery__list{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 200px 200px;
       gap: 11px;
-      &-img:nth-child(2){
-        height: 100%;
-        grid-area: 1/2/3/3;
+      &-img{
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        img{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include transform(translate(-50%, -50%) scale(1));
+          min-width: 100%;
+          min-height: 100%;
+          object-fit: cover;
+          @include transition($t);
+        }
+        &::before{
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: $black-bg-cl;
+          opacity: 0;
+          position: absolute;
+          z-index: 15;
+        }
+        &:nth-child(2){
+          grid-area: 1/2/3/3;
+        }
+        &:hover{
+          img{
+            @include transition($t);
+            @include transform(translate(-50%, -50%) scale(1.05));
+          }
+          &::before{
+            opacity: 0.4;
+            @include transition($t);
+          }
+        }
+      }
+      @include mobile{
+        grid-template-rows: 100px 100px;
+        gap: 7px;
       }
     }
   }
   /** ------------------------------- 
     Component  News
   */
-
+  .news{
+    --Heightimg: 200px;
+    .textbox{
+      padding: 0;
+      max-width: 550px;
+      h2{
+        &::before{
+          display: none;
+        }
+      }
+    }
+    &__list{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      column-gap: 15px;
+      &-textbox{
+        .image{
+          height: var(--Heightimg);
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translate(-50%, -50%) scale(1));
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            @include transition($t);
+          }
+          &::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: $black-bg-cl;
+            opacity: 0;
+            position: absolute;
+            z-index: 15;
+          }
+          &:hover{
+            img{
+              @include transition($t);
+              @include transform(translate(-50%, -50%) scale(1.05));
+            }
+            &::before{
+              opacity: 0.4;
+              @include transition($t);
+            }
+          }
+        }
+        .text{
+          .title{
+            margin-bottom: 5px;
+            a{
+              @include text1(18px, pb, 24px, $black-cl, uppercase);
+              text-decoration: none;
+              height: 48px;
+              @include overtext(2);
+              @include transition($t);
+              &:hover{
+                color: $yellow-cl;
+                @include transition($t);
+              }
+            }
+            &::before{
+              content: "";
+              background: $yellow-cl;
+              width: 80px;
+              height: 3px;
+              display: block;
+              margin: 25px 0 20px 0;
+            }
+          }
+          p{
+            height: 60px;
+            line-height: 19px;
+            @include overtext(3);
+          }
+        }
+      }
+    }
+    @include tablet{
+      --Heightimg: 140px;
+    }
+    @include mobile{
+      --Heightimg: 240px;
+      &__list{
+        grid-template-columns: 1fr;
+        &-textbox{
+          &:not(:last-child){
+            margin-bottom: 40px;
+          }
+          .text{
+            .title{
+              margin-bottom: 20px;
+              a{
+                height: auto;
+                @include overtext(initial);
+              }
+            }
+            p{
+              height: auto;
+              @include overtext(initial);
+            }
+          }
+        }
+      }
+    }
+  }
   /** ------------------------------- 
     Component Image move
   */ 
+  .photos{
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    img{
+      margin: 0 15px;
+      max-width: 100%;
+      min-width: 500px;
+      overflow: hidden;
+    }
+  }
 }

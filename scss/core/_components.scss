@@ -103,18 +103,7 @@
     }
 }
 
-.gallery__list{
-    --Width: 320px;
-    --Height: 200px;
-    &-img{
-        width: var(--Width);
-        height: var(--Height);
-        img{
-            min-width: var(--Width);
-            min-height: var(--Height);
-        }
-    }
-}
+
 
   // screen tablet
 @include tablet{
