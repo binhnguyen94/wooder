@@ -439,7 +439,18 @@
   /** ------------------------------- 
     Component Gallery
   */
-
+  .gallery{
+    background: $black-bg-cl;
+    .gallery__list{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+      &-img:nth-child(2){
+        height: 100%;
+        grid-area: 1/2/3/3;
+      }
+    }
+  }
   /** ------------------------------- 
     Component  News
   */

@@ -84,6 +84,36 @@
             }
         }
     }
+    &.--gallery{
+        max-width: 440px;
+        padding: 0;
+        padding-top: 20px;
+        h2{
+            line-height: 0;
+            margin-bottom: 38px;
+            color: $white-cl;
+            &::before{
+                display: none;
+            }
+        }
+        p{
+            color: $white-cl;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+.gallery__list{
+    --Width: 320px;
+    --Height: 200px;
+    &-img{
+        width: var(--Width);
+        height: var(--Height);
+        img{
+            min-width: var(--Width);
+            min-height: var(--Height);
+        }
+    }
 }
 
   // screen tablet
