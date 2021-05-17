@@ -300,10 +300,22 @@
                 -webkit-filter: grayscale(100%) brightness(126%);
                 -moz-filter: grayscale(100%) brightness(126%);
                 @include transform(translate(-50%, -50%) scale(1.05));
+                position: absolute;
+                z-index: 4;
               }
             }
             .play-btn{
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              background: $yellow-cl;
               @include mid;
+              z-index: 5;
+              >img{
+                width: 20px;
+                padding-top: 17px;
+                padding-left: 2px;
+              }
             }
             &::after{
               content: "";
@@ -376,6 +388,7 @@
     background: url(../../img/background.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
+    z-index: -2;
     .container{
       height: 100%;
       display: flex;
@@ -399,12 +412,19 @@
           justify-content: center;
           letter-spacing: 4px;
           font-family: pb;
+          z-index: 1;
         }
         i{
           width: 25px;
           height: 25px;
           margin-right: 12px;
+          z-index: 1;
         }
+      }
+      .btnmain{
+        &::before{
+          z-index: 0;
+        }      
       }
     }
     @include tablet{
