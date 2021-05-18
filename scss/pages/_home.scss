@@ -36,7 +36,7 @@
     &__bottom {
       width: 100%;
       position: absolute;
-      bottom: 15px;
+      bottom: 20px;
       left: 0;
       .container-fluid{
         display: flex;
@@ -120,15 +120,68 @@
         display: flex;
         &__btn{
           border: 1px solid $white-cl;
-          padding: 15px 15px;
+          padding: 15px 25px;
           cursor: pointer;
-          &:last-child{
+          position: relative;
+          &.--next{
             border-left: 0;
+            img{
+              position: relative;
+              z-index: 2;
+            }
+            &:before{
+              content: "";
+              width: 100%;
+              height: 100%;
+              background: $yellow-cl;
+              position: absolute;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              display: block;
+              
+              @include transition(transform $t);
+              @include transform(scaleX(0));
+              @include transform-origin(right);
+            }
+            &:hover:before{
+              background: $yellow-cl;
+              @include transition(transform $t);
+              @include transform(scaleX(1));
+              @include transform-origin(left);
+            }
           }
-          &:hover{
-            background: $yellow-cl;
-            @include transition($t);
-          }
+          &.--prev{
+            img{
+              position: relative;
+              z-index: 2;
+            }
+            &:before{
+              content: "";
+              width: 100%;
+              height: 100%;
+              background: $yellow-cl;
+              position: absolute;
+              z-index: 1;
+              top: 0;
+              left: 0;
+              display: block;
+              
+              @include transition(transform $t);
+              @include transform(scaleX(0));
+              @include transform-origin(left);
+            }
+            &:hover:before{
+              background: $yellow-cl;
+              @include transition(transform $t);
+              @include transform(scaleX(1));
+              @include transform-origin(right);
+            }
+          }     
+          // &:hover{
+          //   background: $yellow-cl;
+          //   @include transition($t);
+          // }
         }
       }
     }
@@ -136,7 +189,7 @@
   // screen tablet of Slider
   @include tablet{
     .slider{
-    height: 600px;
+    height: 700px;
     &__bottom{
       .mouse{
         &__img{
@@ -149,7 +202,7 @@
   // screen tablet of Slider
   @include mobile {
     .slider{
-      height: 600px;
+      height: 500px;
       --fztitle: 60px;
       --pdborder: 10px 20px;
       &__images{
@@ -385,10 +438,20 @@
   .background{
     width: 100%;
     height: auto;
-    background: url(../../img/background.jpg) no-repeat center;
+    position: relative;
+    background: url(../img/background.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
-    z-index: -2;
+    z-index: 0;
+    // .background__image{
+    //   width: 100%;
+    //   background: no-repeat center;
+    //   background-size: cover;
+    //   background-attachment: fixed;
+    //   position: absolute;
+    //   z-index: 0;
+    //   @include mid;
+    // }
     .container{
       height: 100%;
       display: flex;
@@ -396,6 +459,7 @@
     .textbox{
       max-width: 550px;
       padding: 180px 0;
+      z-index: 1;
       h2{
         &::before{
           display: none;
@@ -423,7 +487,7 @@
       }
       .btnmain{
         &::before{
-          z-index: 0;
+          z-index: 1;
         }      
       }
     }
@@ -484,7 +548,7 @@
     .gallery__list{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 200px 200px;
+      grid-auto-rows: 200px;
       gap: 11px;
       &-img{
         overflow: hidden;
@@ -524,7 +588,7 @@
         }
       }
       @include mobile{
-        grid-template-rows: 100px 100px;
+        grid-template-columns: repeat(2, 1fr);
         gap: 7px;
       }
     }
@@ -533,7 +597,6 @@
     Component  News
   */
   .news{
-    --Heightimg: 200px;
     .textbox{
       padding: 0;
       max-width: 550px;
@@ -549,9 +612,10 @@
       column-gap: 15px;
       &-textbox{
         .image{
-          height: var(--Heightimg);
+          height: 0;
           overflow: hidden;
           position: relative;
+          padding-bottom: 68%;
           cursor: pointer;
           img{
             position: absolute;
@@ -615,10 +679,8 @@
       }
     }
     @include tablet{
-      --Heightimg: 140px;
     }
     @include mobile{
-      --Heightimg: 240px;
       &__list{
         grid-template-columns: 1fr;
         &-textbox{
@@ -670,7 +732,7 @@ body{
     z-index: 500;
     background: #525151;
     @include tablet{
-      display: block;
+      display: none;
       ul{
         position: absolute;
         z-index: 501;
