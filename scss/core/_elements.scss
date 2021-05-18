@@ -72,7 +72,7 @@ img {
     @include transition($t);
   }
   &:hover img{
-      margin-left: 18px;
+      @include transform(translateX(8px));
       @include transition($t);
       opacity: 1;
   }
