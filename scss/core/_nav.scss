@@ -6,9 +6,14 @@ nav{
     z-index: 500;
     background: $black-bg-cl;
     opacity: 0;
-    visibility: hidden;
+    // visibility: hidden;
+    @include transition($t);
     @include tablet{
         display: block;
+        &.active{
+            opacity: 1;
+            @include transition($t);
+        }
         ul{
             position: absolute;
             z-index: 501;

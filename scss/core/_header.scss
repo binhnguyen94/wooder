@@ -51,6 +51,7 @@ header {
                     display: flex;
                     align-items: center;
                     cursor: pointer;
+                    @include transition($t);
                     span{
                         @include text(15px, pb, normal, #fff, uppercase);
                         margin-right: 5px;
@@ -67,31 +68,33 @@ header {
                     padding: 10px 0;
                     a{
                         color: #fff;
+                        font-size: 15px;
                         height: 100%;
                         display: flex;
                         flex-direction: column;
                         padding: 10px 0;
                         text-decoration: none;
                     }
-                }
-                &:hover{
-                    .lang__current{
-                        span{
-                            transition: 0.3s;
-                            // opacity: 0.5;
-                            color: #bea67c;
-                        }    
-                    }
-                    .lang__option{
+                    &.clicked{
                         display: block;
                         a:hover{
                             transition: 0.3s;
                             // opacity: 0.5;
                             color: #bea67c;
                         }
-                        
                     }
                 }
+                &:hover{
+                    .lang__current{
+                        span{
+                            @include transition($t);
+                            // opacity: 0.5;
+                            color: #bea67c;
+                        }
+                    }    
+                    
+                }
+                
             }
             .btnmenu{
                 display: none;
