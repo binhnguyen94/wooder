@@ -210,10 +210,10 @@
           .text{
             h2{
               letter-spacing: 10px;
-              margin: initial;
+              margin: 25px 0;
             }
-            .btn{
-              top: 25px;
+            .btnmain{
+              --pdborder: 10px 30px;
               span{
                 font-size: 14px;
                 letter-spacing: 3px;
@@ -716,41 +716,6 @@
       max-width: 100%;
       min-width: 500px;
       overflow: hidden;
-    }
-  }
-}
-
-/* ------------------------------- 
-  Component navigation
-*/
-body{
-  .nav{
-    width: 100vw;
-    height: 100vh;
-    display: none;
-    position: absolute;
-    z-index: 500;
-    background: #525151;
-    @include tablet{
-      display: none;
-      ul{
-        position: absolute;
-        z-index: 501;
-        top: 50%;
-        left: 50%;
-        @include transform(translate(-50%, -50%));
-        li{
-          margin: 30px;
-          text-align: center;
-          a{
-            text-decoration: none;
-            color: $white-cl;
-            letter-spacing: 8px;
-            font-family: pb;
-            font-size: 25px;
-          }
-        }
-      }
     }
   }
 }

@@ -93,52 +93,58 @@ header {
                     }
                 }
             }
+            .btnmenu{
+                display: none;
+                width: 40px;
+                height: 22px;
+                position: relative;
+                margin-left: 20px;
+                cursor: pointer;
+                span{
+                    width: 100%;
+                    height: 2px;
+                    background: $yellow-cl;
+                    position: absolute;
+                    display: block;
+                    top: 50%;
+                    @include transform(translateY(-50%));
+                }
+                &:before, &:after{
+                    content: "";
+                    width: 100%;
+                    height: 2px;
+                    display: block;
+                    background: $yellow-cl;
+                    @include transform(rotate(0deg) translate(0));
+                    @include transition($t);
+                }
+                &::after{
+                    bottom: 0;
+                    position: absolute;
+                }
+                &.clicked{
+                    &::before{
+                        @include transform(rotate(45deg) translateX(8px) translateY(6px));
+                        @include transition($t);
+                    }
+                    span{
+                        opacity: 0;
+                        @include transition($t);
+                    }
+                    &::after{
+                        @include transform(rotate(-45deg) translateX(7px) translateY(-7px));
+                        @include transition($t);
+                    }
+                }
+            }
         }
     }  
 }
 
-@include tabletLc {
-    header{
-        .container-fluid{
-            .menu{
-                display: none;
-            }
-            .right{
-                display: flex;
-                align-items: center;
-                .btnmenu{
-                    padding-left: 30px;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    cursor: pointer;
-                    span{
-                        width: 50px;
-                        height: 3px;
-                        margin: 10px 0;
-                        background: $yellow-cl;
-                        display: block;
-                    }
-                    &:before{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                    &:after{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                }
-            }   
-        }
-    }
-}
 
 @include tablet {
     header{
+        --heightHeader: 60px;
         .container-fluid{
             .menu{
                 display: none;
@@ -147,31 +153,8 @@ header {
                 display: flex;
                 align-items: center;
                 .btnmenu{
-                    padding-left: 30px;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    cursor: pointer;
-                    span{
-                        width: 50px;
-                        height: 3px;
-                        margin: 10px 0;
-                        background: $yellow-cl;
-                        display: block;
-                    }
-                    &:before{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                    &:after{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                }
+                    display: block;
+                }    
             } 
         }
     }
@@ -184,36 +167,6 @@ header {
             .menu{
                 display: none;
             }
-            .right{
-                display: flex;
-                align-items: center;
-                .btnmenu{
-                    padding-left: 30px;
-                    display: flex;
-                    align-items: center;
-                    flex-direction: column;
-                    cursor: pointer;
-                    span{
-                        width: 50px;
-                        height: 3px;
-                        margin: 10px 0;
-                        background: $yellow-cl;
-                        display: block;
-                    }
-                    &:before{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                    &:after{
-                        content: "";
-                        width: 50px;
-                        height: 3px;
-                        background: $yellow-cl;
-                    }
-                }
-            } 
         }
     }
 }
