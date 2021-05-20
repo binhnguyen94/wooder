@@ -7,9 +7,25 @@ btnmenu.onclick = function(){
 }
 
 
-let langOption = document.querySelector('.lang__option');
-let langCurrrent = document.querySelector('.lang__current');
+let lang = document.querySelector('.lang');
+let langCurrrent = document.querySelector('.lang .lang__current span');
+let langOpt = document.querySelector('.lang .lang__option');
+let langItem = document.querySelectorAll('.lang .lang__option a')
 
-langCurrrent.onclick = function(){
-    langOption.classList.toggle('clicked');
-}
+lang.addEventListener('click', function(e){
+    e.stopPropagation();
+    langOpt.classList.toggle('clicked');
+});
+
+langItem.forEach(function (item){
+    item.addEventListener('click', function(){
+        let langText = this.textContent;
+        let langSpan = langCurrrent.textContent;
+        langCurrrent.innerHTML = langText;
+        this.innerHTML = langSpan;
+    });
+})
+
+document.addEventListener('click', function(){
+    langOpt.classList.remove('clicked');
+})

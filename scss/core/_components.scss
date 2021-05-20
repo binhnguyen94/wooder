@@ -1,6 +1,6 @@
 .textbox{
     --pdleft: 100px;
-    --pdright: 15px;
+    --pdright: 50px;
     padding-left: var(--pdleft);
     padding-top: 50px;
     padding-right: var(--pdright);
@@ -38,9 +38,11 @@
       display: block;
     }
     &.--textright{
+        --pdleft: 100px;
+        --pdright: 50px;
+        padding-right: var(--pdleft);
         text-align: right;
         padding-left: var(--pdright);
-        padding-right: var(--pdleft);
         h2{
             flex-direction: row-reverse;
             &::before{
@@ -104,19 +106,25 @@
 }
 
 
-
+@include desktop{
+    .textbox{
+        --pdright: 40px;
+    }
+}
   // screen tablet
 @include tablet{
     .textbox{
         --pdleft: 0px;
-        --pdright: 10px;
-        padding-left: var(--pdleft);
+        --pdright: 0px;
         padding-top: 0;
-        padding-right: var(--pdright);
         h2{
             &::before{
                 display: none;
             }
+        }
+        &.--textright{
+            --pdleft: 0px;
+            --pdright: 0px;
         }
     } 
 }

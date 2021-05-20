@@ -30,8 +30,9 @@ header {
                 height: 100%;            
                 a{
                     height: 100%;
-                    @include text(15px, pb, normal, #fff, uppercase);
+                    @include text($fz-text, pb, normal, #fff, uppercase);
                     text-decoration: none;
+                    letter-spacing: 2px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -53,8 +54,9 @@ header {
                     cursor: pointer;
                     @include transition($t);
                     span{
-                        @include text(15px, pb, normal, #fff, uppercase);
+                        @include text($fz-text, pb, normal, #fff, uppercase);
                         margin-right: 5px;
+                        letter-spacing: 2px;
                     } 
                     i{
                         img{
@@ -66,9 +68,11 @@ header {
                     display: none;
                     position: absolute;
                     padding: 10px 0;
+                    
                     a{
                         color: #fff;
-                        font-size: 15px;
+                        font-size: $fz-text;
+                        letter-spacing: 2px;
                         height: 100%;
                         display: flex;
                         flex-direction: column;
@@ -143,8 +147,14 @@ header {
         }
     }  
 }
-
-
+@include desktop{
+    header{
+        .container-fluid{
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+}
 @include tablet {
     header{
         --heightHeader: 60px;

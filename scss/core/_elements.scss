@@ -2,8 +2,10 @@ img {
     max-width: 100%;
 }
 .btnmain{
-  --pdborder: 15px 50px;
+  --pdborder: 15px 45px;
   border: 1px solid $white-cl;
+  font-size: 14px;
+  font-family: pb;
   text-transform: uppercase;
   text-decoration: none; 
   color: $white-cl;
@@ -38,6 +40,9 @@ img {
     @include transform(scaleX(1));
     @include transform-origin(left);
   }
+  @include mobile{
+    --pdborder: 12px 27px;
+  }
 }
 
 .btnmore{
@@ -47,6 +52,7 @@ img {
   text-transform: uppercase;
   font-family: pb;
   letter-spacing: 3px;
+  font-size: 14px;
   position: relative;
   margin-bottom: 30px;
   opacity: 1;
@@ -63,9 +69,11 @@ img {
   img{
     margin-left: 10px;
     width: 28px;
+    @include transition($t);
   }
   span{
     @include mid(true);
+    @include transition($t);
   }
   &:hover span{
     opacity: 0.6;

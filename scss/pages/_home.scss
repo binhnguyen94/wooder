@@ -56,7 +56,7 @@
           &:before{
             content: "";
             width: 42px;
-            height: 4px;
+            height: 3px;
             background: $yellow-cl;
             margin-right: 12px;
             display: inline-block;
@@ -65,8 +65,8 @@
         ul{
           margin-left: 15px;
           li{
-            width: 10px;
-            height: 10px;
+            width: 9px;
+            height: 9px;
             background: $white-cl;
             @include br(50%);
             opacity: 0.5;
@@ -186,6 +186,20 @@
       }
     }
   }
+  @include maxW(1400px){
+    .slider{
+      height: 650px;
+    }
+  }
+  @include desktop{
+    .slider{
+        height: 600px;
+        .container-fluid{
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+    }   
+  }
   // screen tablet of Slider
   @include tablet{
     .slider{
@@ -202,7 +216,7 @@
   // screen tablet of Slider
   @include mobile {
     .slider{
-      height: 500px;
+      height: 450px;
       --fztitle: 60px;
       --pdborder: 10px 20px;
       &__images{
@@ -347,14 +361,16 @@
               -webkit-filter: grayscale(100%);
               -moz-filter: grayscale(100%);
               @include transition($t);
-              &:hover{
+            }
+            &:hover{
+              >img{
                 @include transition($t);
                 filter: grayscale(100%) brightness(126%);
                 -webkit-filter: grayscale(100%) brightness(126%);
                 -moz-filter: grayscale(100%) brightness(126%);
                 @include transform(translate(-50%, -50%) scale(1.05));
                 position: absolute;
-                z-index: 4;
+                z-index: 0;
               }
             }
             .play-btn{
@@ -377,6 +393,7 @@
               border-radius: 50%;
               border: 15px solid $white-cl;
               @include mid;
+              @include transition($t);
               z-index: 0;
               box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
               -webkit-box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
@@ -421,12 +438,15 @@
         }
       }
       &__video{
-        --Wvideo: 300px;
-        --Hvideo: 300px;
+        --Wvideo: 250px;
+        --Hvideo: 250px;
         .product__video-list{
           display: flex;
           flex-direction: column;
           align-items: center;
+          .item:not(:last-child){
+            padding-bottom: 30px;
+          }
         }
       }
     }
@@ -466,7 +486,6 @@
         }
       }
       .btn-video{
-        --pdborder: 15px 50px;
         margin: 0;
         cursor: pointer;
         span{
@@ -572,6 +591,7 @@
           opacity: 0;
           position: absolute;
           z-index: 15;
+          @include transition($t);
         }
         &:nth-child(2){
           grid-area: 1/2/3/3;
@@ -634,6 +654,7 @@
             background: $black-bg-cl;
             opacity: 0;
             position: absolute;
+            @include transition($t);
             z-index: 15;
           }
           &:hover{
