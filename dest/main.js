@@ -1,3 +1,5 @@
+// Xử lý button Menu
+
 let nav = document.querySelector('.nav');
 let btnmenu = document.querySelector('header .btnmenu');
 
@@ -6,7 +8,7 @@ btnmenu.onclick = function(){
     this.classList.toggle('clicked');
 }
 
-
+// Xử lý Button Language
 let lang = document.querySelector('.lang');
 let langCurrrent = document.querySelector('.lang .lang__current span');
 let langOpt = document.querySelector('.lang .lang__option');
@@ -24,8 +26,10 @@ langItem.forEach(function (item){
         langCurrrent.innerHTML = langText;
         this.innerHTML = langSpan;
     });
-})
+});
 
 document.addEventListener('click', function(){
     langOpt.classList.remove('clicked');
-})
+});
+
+
