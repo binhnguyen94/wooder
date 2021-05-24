@@ -6,9 +6,10 @@ header {
     position: fixed;
     left: 0;
     top: 0;
-    mix-blend-mode: difference;
+    // mix-blend-mode: difference;
     z-index: 600;
-    
+    @include transition($t);
+
     .container-fluid {
         height: 100%;
         display: flex;
@@ -145,6 +146,10 @@ header {
                 }
             }
         }
+    }
+    &.active{
+        background: $black-bg-cl;
+        @include transition($t);
     }  
 }
 @include desktop{

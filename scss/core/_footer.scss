@@ -35,3 +35,26 @@ footer{
         }
     }
 }
+
+.totop{
+    width: 30px;
+    height: 30px;
+    right: 20px;
+    bottom: 30px;
+    @include mid(true);
+    border: 2px solid $yellow-cl;
+    position: fixed;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    @include transition($t);
+    z-index: 900;
+    img{
+        width: 20px;
+    }
+    &.active{
+        opacity: 1;
+        pointer-events: auto;
+        @include transition($t);
+    }
+}
