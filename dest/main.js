@@ -50,15 +50,15 @@ function showBg(){
 // Scroll Back To Top
 let backToTop = document.querySelector('.totop');
 let footer = document.querySelector('footer');
-console.log(footer.clientHeight);
 function scrollToTop(){
     let scrollY = window.pageYOffset;
-    if(scrollY > (heightSlider - heightHeader)){
-        backToTop.classList.add('active');
-    }else if(scrollY >= (document.innerHeight - footer.clientHeight)){
+    if(scrollY < (heightSlider - heightHeader)){
+        backToTop.classList.remove('active');
+    }else if(scrollY >= (document.body.clientHeight - window.innerHeight)){
         backToTop.classList.remove('active'); 
+    } else{
+        backToTop.classList.add('active'); 
     }
-    console.log(document.innerHeight)
 }
 
 backToTop.addEventListener('click', function(){
@@ -71,3 +71,45 @@ document.addEventListener('scroll', function(){
     showBg();
     scrollToTop();
 })
+
+// Select Menu scroll 
+let menu = document.querySelectorAll('header .menu a');
+let sections = [];
+// Tạo Function remove class active để tái sử dụng
+function removeActiveMenu(){
+    menu.forEach(function(element_menu, index_menu){
+        element_menu.classList.remove('active');
+    });
+};
+
+// Thực hiện click menu scroll tới section cần thiết
+menu.forEach(function(element, index){
+    let menuName = element.getAttribute('href').replace('#', '');
+    let section = document.querySelector('.' + menuName);
+    sections.push(section);
+    element.addEventListener('click', function(e){
+        e.preventDefault();
+        window.scrollTo({
+            top: section.offsetTop - heightHeader + 1
+        });
+        removeActiveMenu();
+        element.classList.add('active');
+    });
+});
+
+// Chức năng thực hiện scroll tới đâu thì active menu tới đó
+window.addEventListener('scroll', function(e){
+    let positionScroll = window.pageYOffset;
+
+    sections.forEach(function(section, index){
+        if(positionScroll > (section.offsetTop - heightHeader) && positionScroll < (section.offsetTop + section.offsetHeight)){
+            removeActiveMenu();
+            menu[index].classList.add('active');
+        } else {
+            menu[index].classList.remove('active');
+        };
+    });
+});
+
+
+// Thực hiện chuyển trang trên silder
