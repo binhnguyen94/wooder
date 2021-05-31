@@ -90,7 +90,8 @@ menu.forEach(function(element, index){
     element.addEventListener('click', function(e){
         e.preventDefault();
         window.scrollTo({
-            top: section.offsetTop - heightHeader + 1
+            top: section.offsetTop - heightHeader + 1,
+            behavior: 'smooth',
         });
         removeActiveMenu();
         element.classList.add('active');
@@ -112,4 +113,77 @@ window.addEventListener('scroll', function(e){
 });
 
 
+// ------------------------------------------
 // Thực hiện chuyển trang trên silder
+let listSlider = document.querySelectorAll('.slider__images-item');
+let currentSlider = 0
+let numberSlider = document.querySelector('.slider__bottom .paging .number');
+let dot = document.querySelectorAll('.slider__bottom ul li');
+listSlider.forEach(function(itemSlider, index){
+    if(itemSlider.classList.contains('active')){
+        currentSlider = index;
+    }
+});
+// thay đổi number khi chuyển slider
+function changeNumber(index){
+    numberSlider.innerHTML = (index).toString().padStart(2, '0');
+}
+// default active
+changeNumber(currentSlider + 1);
+dot[currentSlider].classList.add('active');
+
+// thực hiện btn next - prev
+function goTo(index){
+    listSlider[currentSlider].classList.remove('active');
+    listSlider[index].classList.add('active');
+    dot[currentSlider].classList.remove('active');
+    dot[index].classList.add('active');
+    currentSlider = index;
+    changeNumber(currentSlider + 1);
+}
+document.querySelector('.control .--next').addEventListener('click', function(){
+    if(currentSlider < listSlider.length - 1){
+        goTo(currentSlider + 1);
+    } else{
+        goTo(0);
+    }
+});
+document.querySelector('.control .--prev').addEventListener('click', function(){
+    if(currentSlider > 0){
+        goTo(currentSlider - 1)
+    }else{
+        goTo(listSlider.length - 1)
+    }
+});
+
+// Function click dot thì chuyển Slider
+dot.forEach(function(e, index){
+    e.addEventListener('click', function(){
+        goTo(index);
+    });
+});
+
+// -------------------------------
+// Event popup video
+let buttonVideo = document.querySelectorAll('.product .item-circle .play-btn');
+let popupVideo = document.querySelector('.popup-video');
+let closeVideo = document.querySelector('.popup-video .close');
+let iframe = document.querySelector('.popup-video .iframe-wrap iframe');
+
+buttonVideo.forEach(function(e){
+    e.addEventListener('click', function(){
+        let videoId = e.getAttribute('data-video-id');
+        iframe.setAttribute('src', 'https://www.youtube.com/embed/' + videoId);
+        popupVideo.style.display = 'flex';
+    })
+});
+
+closeVideo.addEventListener('click', function(){
+    iframe.setAttribute('src', '');
+    popupVideo.style.display = 'none';
+})
+
+popupVideo.addEventListener('click', function(e){
+    iframe.setAttribute('src', '');
+    popupVideo.style.display = 'none';
+})

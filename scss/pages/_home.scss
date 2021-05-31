@@ -1,38 +1,39 @@
-.homepage{
+.homepage {
   /* ------------------------------- 
     Component Silder
   */
-  .slider{
+  .slider {
     width: 100%;
     height: 100vh;
     position: relative;
     --fztitle: 84px;
-    &__images{
+    &__images {
       width: 100%;
       height: 100%;
-      &-item{
+      &-item {
         width: 100%;
         height: 100%;
         position: relative;
         display: none;
-        .text{
+
+        .text {
           @include mid;
           z-index: 100;
-          h2{
+          h2 {
             font-size: var(--fztitle);
             text-transform: uppercase;
             font-family: pb;
             letter-spacing: 20px;
             color: $yellow-cl;
             margin: 45px 0;
-          }     
+          }
         }
-        .banner{
+        .banner {
           height: 100%;
           width: 100%;
           @include midimg(initial);
         }
-        &.active{
+        &.active {
           display: block;
         }
       }
@@ -42,22 +43,22 @@
       position: absolute;
       bottom: 20px;
       left: 0;
-      .container-fluid{
+      .container-fluid {
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
-      .paging{
+      .paging {
         display: flex;
         align-items: center;
-        span{
+        span {
           font-size: 48px;
           color: $yellow-cl;
           font-family: pb;
           line-height: normal;
           display: flex;
           align-items: center;
-          &:before{
+          &:before {
             content: "";
             width: 42px;
             height: 3px;
@@ -66,9 +67,9 @@
             display: inline-block;
           }
         }
-        ul{
+        ul {
           margin-left: 15px;
-          li{
+          li {
             width: 9px;
             height: 9px;
             background: $white-cl;
@@ -78,17 +79,17 @@
             display: inline-block;
             cursor: pointer;
             flex-shrink: 0;
-            @include transform($t);
+            @include transition($t);
             &:hover,
-            &.active{
+            &.active {
               background-color: $yellow-cl;
               opacity: 1;
-              @include transform($t);
+              @include transition($t);
             }
           }
         }
       }
-      .mouse{
+      .mouse {
         position: absolute;
         left: 50%;
         bottom: 15px;
@@ -97,43 +98,43 @@
         align-items: center;
         flex-direction: column;
         justify-content: center;
-        img{
-          &:first-child{
+        img {
+          &:first-child {
             width: 20px;
             margin-bottom: 12px;
           }
         }
-        &__down{
+        &__down {
           @include animation(mymove 1s ease forwards infinite);
 
-          @include keyframes(mymove){
-            0%{
+          @include keyframes(mymove) {
+            0% {
               @include transform(translateY(0px));
               opacity: 0;
               @include transition($t);
             }
-            100%{
+            100% {
               @include transform(translateY(18px));
               opacity: 1;
               @include transition($t);
             }
           }
         }
-      }  
-      .control{
+      }
+      .control {
         display: flex;
-        &__btn{
+        &__btn {
           border: 1px solid $white-cl;
           padding: 15px 25px;
           cursor: pointer;
           position: relative;
-          &.--next{
+          &.--next {
             border-left: 0;
-            img{
+            img {
               position: relative;
               z-index: 2;
             }
-            &:before{
+            &:before {
               content: "";
               width: 100%;
               height: 100%;
@@ -143,24 +144,24 @@
               top: 0;
               left: 0;
               display: block;
-              
+
               @include transition(transform $t);
               @include transform(scaleX(0));
               @include transform-origin(right);
             }
-            &:hover:before{
+            &:hover:before {
               background: $yellow-cl;
               @include transition(transform $t);
               @include transform(scaleX(1));
               @include transform-origin(left);
             }
           }
-          &.--prev{
-            img{
+          &.--prev {
+            img {
               position: relative;
               z-index: 2;
             }
-            &:before{
+            &:before {
               content: "";
               width: 100%;
               height: 100%;
@@ -170,18 +171,18 @@
               top: 0;
               left: 0;
               display: block;
-              
+
               @include transition(transform $t);
               @include transform(scaleX(0));
               @include transform-origin(left);
             }
-            &:hover:before{
+            &:hover:before {
               background: $yellow-cl;
               @include transition(transform $t);
               @include transform(scaleX(1));
               @include transform-origin(right);
             }
-          }     
+          }
           // &:hover{
           //   background: $yellow-cl;
           //   @include transition($t);
@@ -190,49 +191,49 @@
       }
     }
   }
-  @include maxW(1400px){
-    .slider{
+  @include maxW(1400px) {
+    .slider {
       height: 650px;
     }
   }
-  @include desktop{
-    .slider{
-        height: 600px;
-        .container-fluid{
-          padding-right: 15px;
-          padding-left: 15px;
-        }
-    }   
-  }
-  // screen tablet of Slider
-  @include tablet{
-    .slider{
-    height: 700px;
-    &__bottom{
-      .mouse{
-        &__img{
-          display: none;
-        }
+  @include desktop {
+    .slider {
+      height: 600px;
+      .container-fluid {
+        padding-right: 15px;
+        padding-left: 15px;
       }
     }
+  }
+  // screen tablet of Slider
+  @include tablet {
+    .slider {
+      height: 700px;
+      &__bottom {
+        .mouse {
+          &__img {
+            display: none;
+          }
+        }
+      }
     }
   }
   // screen tablet of Slider
   @include mobile {
-    .slider{
+    .slider {
       height: 450px;
       --fztitle: 60px;
       --pdborder: 10px 20px;
-      &__images{
-        &-item{
-          .text{
-            h2{
+      &__images {
+        &-item {
+          .text {
+            h2 {
               letter-spacing: 10px;
               margin: 25px 0;
             }
-            .btnmain{
+            .btnmain {
               --pdborder: 10px 30px;
-              span{
+              span {
                 font-size: 14px;
                 letter-spacing: 3px;
               }
@@ -240,24 +241,24 @@
           }
         }
       }
-      &__bottom{
-        .paging{
+      &__bottom {
+        .paging {
           display: flex;
           align-items: center;
-          span{
+          span {
             font-size: 30px;
             color: $yellow-cl;
             font-family: pb;
             line-height: normal;
             display: flex;
             align-items: center;
-            &:before{
+            &:before {
               display: none;
             }
           }
-          ul{
+          ul {
             margin-left: 10px;
-            li{
+            li {
               width: 8px;
               height: 8px;
               background: $white-cl;
@@ -269,7 +270,7 @@
               flex-shrink: 0;
               @include transform($t);
               &:hover,
-              &.active{
+              &.active {
                 background-color: $yellow-cl;
                 opacity: 1;
                 @include transform($t);
@@ -277,7 +278,7 @@
             }
           }
         }
-        .mouse{
+        .mouse {
           position: absolute;
           left: 50%;
           bottom: 15px;
@@ -286,63 +287,63 @@
           // align-items: center;
           // flex-direction: column;
           justify-content: center;
-          img{
-            &:first-child{
+          img {
+            &:first-child {
               display: none;
             }
           }
         }
-        .control{
+        .control {
           display: flex;
-          &__btn{
+          &__btn {
             border: 1px solid $white-cl;
             padding: 10px 10px;
             cursor: pointer;
-            &:last-child{
+            &:last-child {
               border-left: 0;
             }
-            &:hover{
+            &:hover {
               background: $yellow-cl;
               @include transition($t);
             }
           }
-        }  
+        }
       }
     }
   }
   /** ------------------------------- 
     Component Product
-  */ 
-  .product{
+  */
+  .product {
     --Widthimg: 520px;
     position: relative;
-    &__list{
+    &__list {
       position: relative;
-      &-content{
+      &-content {
         display: grid;
         grid-template-columns: 1fr var(--Widthimg);
-        &.--decor{
+        &.--decor {
           margin: 90px 0;
-          grid-template-columns: var(--Widthimg) 1fr ;
-          .textbox{
+          grid-template-columns: var(--Widthimg) 1fr;
+          .textbox {
             grid-area: 1/2/2/3;
           }
-          .image{
+          .image {
             grid-area: 1/1/2/2;
           }
         }
       }
     }
-    &__video{
+    &__video {
       --Wvideo: 200px;
       --Hvideo: 200px;
-      .product__video-list{
+      .product__video-list {
         display: flex;
         justify-content: space-around;
         margin-top: 50px;
-        .item{
+        .item {
           text-align: center;
-          &-circle{
+          &-circle {
             width: var(--Wvideo);
             height: var(--Hvideo);
             border-radius: 50%;
@@ -351,7 +352,7 @@
             z-index: 3;
             border: 1px solid $white-cl;
             cursor: pointer;
-            >img{
+            > img {
               position: absolute;
               top: 50%;
               left: 50%;
@@ -366,8 +367,8 @@
               -moz-filter: grayscale(100%);
               @include transition($t);
             }
-            &:hover{
-              >img{
+            &:hover {
+              > img {
                 @include transition($t);
                 filter: grayscale(100%) brightness(126%);
                 -webkit-filter: grayscale(100%) brightness(126%);
@@ -377,20 +378,20 @@
                 z-index: 0;
               }
             }
-            .play-btn{
+            .play-btn {
               width: 50px;
               height: 50px;
               border-radius: 50%;
               background: $yellow-cl;
               @include mid;
               z-index: 5;
-              >img{
+              > img {
                 width: 20px;
                 padding-top: 17px;
                 padding-left: 2px;
               }
             }
-            &::after{
+            &::after {
               content: "";
               width: calc(100% + 15px);
               height: calc(100% + 15px);
@@ -399,13 +400,13 @@
               @include mid;
               @include transition($t);
               z-index: 0;
-              box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
-              -webkit-box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);
-              -moz-box-shadow: 1px 1px 4px 5px rgba(0,0,0,0.75);   
+              box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.75);
+              -webkit-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.75);
+              -moz-box-shadow: 1px 1px 4px 5px rgba(0, 0, 0, 0.75);
             }
           }
-          p{
-            &::before{
+          p {
+            &::before {
               content: "";
               width: 20px;
               height: 2px;
@@ -419,36 +420,36 @@
     }
   }
   // screen tablet of Product
-  @include tablet{
-    .product{
+  @include tablet {
+    .product {
       --Widthimg: 400px;
     }
   }
   // screen mobile of Product
-  @include mobile{
-    .product{
-      &__list{
-        &-content{
+  @include mobile {
+    .product {
+      &__list {
+        &-content {
           grid-template-columns: 1fr !important;
-          &.--decor{
+          &.--decor {
             margin: 60px 0;
-            .textbox{
+            .textbox {
               grid-area: initial;
             }
-            .image{
+            .image {
               grid-area: initial;
             }
           }
         }
       }
-      &__video{
+      &__video {
         --Wvideo: 250px;
         --Hvideo: 250px;
-        .product__video-list{
+        .product__video-list {
           display: flex;
           flex-direction: column;
           align-items: center;
-          .item:not(:last-child){
+          .item:not(:last-child) {
             padding-bottom: 30px;
           }
         }
@@ -458,8 +459,8 @@
 
   /** ------------------------------- 
     Component Background
-  */ 
-  .background{
+  */
+  .background {
     width: 100%;
     height: auto;
     position: relative;
@@ -476,23 +477,23 @@
     //   z-index: 0;
     //   @include mid;
     // }
-    .container{
+    .container {
       height: 100%;
       display: flex;
     }
-    .textbox{
+    .textbox {
       max-width: 550px;
       padding: 180px 0;
       z-index: 1;
-      h2{
-        &::before{
+      h2 {
+        &::before {
           display: none;
         }
       }
-      .btn-video{
+      .btn-video {
         margin: 0;
         cursor: pointer;
-        span{
+        span {
           font-size: 12px;
           display: flex;
           align-self: center;
@@ -501,26 +502,26 @@
           font-family: pb;
           z-index: 1;
         }
-        i{
+        i {
           width: 25px;
           height: 25px;
           margin-right: 12px;
           z-index: 1;
         }
       }
-      .btnmain{
-        &::before{
+      .btnmain {
+        &::before {
           z-index: 1;
-        }      
+        }
       }
     }
-    @include tablet{
-      .textbox{
+    @include tablet {
+      .textbox {
         text-align: left;
       }
     }
-    @include mobile{
-      .textbox{
+    @include mobile {
+      .textbox {
         text-align: left;
         padding: 120px 0;
       }
@@ -530,34 +531,34 @@
   /** ------------------------------- 
     Component About
   */
-  .about{
+  .about {
     --Withimg: 520px;
-    .about_row{
+    .about_row {
       display: grid;
       grid-template-columns: var(--Withimg) 1fr;
-      .textbox{
+      .textbox {
         grid-area: 1/2/2/3;
       }
-      .image{
+      .image {
         grid-area: 1/1/2/2;
       }
     }
-    @include tablet{
+    @include tablet {
       --Withimg: 400px;
-      .textbox{
+      .textbox {
         margin-left: 0;
         padding-left: 30px;
         padding-top: 30px;
       }
     }
-    @include mobile{
-      .about_row{
+    @include mobile {
+      .about_row {
         grid-template-columns: 1fr;
-        .textbox{
+        .textbox {
           padding-left: 0;
           padding-top: 0;
         }
-        .image{
+        .image {
           grid-area: 2/1/2/3;
         }
       }
@@ -566,18 +567,18 @@
   /** ------------------------------- 
     Component Gallery
   */
-  .gallery{
+  .gallery {
     background: $black-bg-cl;
-    .gallery__list{
+    .gallery__list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-auto-rows: 200px;
       gap: 11px;
-      &-img{
+      &-img {
         overflow: hidden;
         position: relative;
         cursor: pointer;
-        img{
+        img {
           position: absolute;
           top: 50%;
           left: 50%;
@@ -587,7 +588,7 @@
           object-fit: cover;
           @include transition($t);
         }
-        &::before{
+        &::before {
           content: "";
           width: 100%;
           height: 100%;
@@ -597,21 +598,21 @@
           z-index: 15;
           @include transition($t);
         }
-        &:nth-child(2){
+        &:nth-child(2) {
           grid-area: 1/2/3/3;
         }
-        &:hover{
-          img{
+        &:hover {
+          img {
             @include transition($t);
             @include transform(translate(-50%, -50%) scale(1.05));
           }
-          &::before{
+          &::before {
             opacity: 0.4;
             @include transition($t);
           }
         }
       }
-      @include mobile{
+      @include mobile {
         grid-template-columns: repeat(2, 1fr);
         gap: 7px;
       }
@@ -620,28 +621,28 @@
   /** ------------------------------- 
     Component  News
   */
-  .news{
-    .textbox{
+  .news {
+    .textbox {
       padding: 0;
       max-width: 550px;
-      h2{
-        &::before{
+      h2 {
+        &::before {
           display: none;
         }
       }
     }
-    &__list{
+    &__list {
       display: grid;
-      grid-template-columns: repeat(3,1fr);
+      grid-template-columns: repeat(3, 1fr);
       column-gap: 15px;
-      &-textbox{
-        .image{
+      &-textbox {
+        .image {
           height: 0;
           overflow: hidden;
           position: relative;
           padding-bottom: 68%;
           cursor: pointer;
-          img{
+          img {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -651,7 +652,7 @@
             object-fit: cover;
             @include transition($t);
           }
-          &::before{
+          &::before {
             content: "";
             width: 100%;
             height: 100%;
@@ -661,32 +662,32 @@
             @include transition($t);
             z-index: 15;
           }
-          &:hover{
-            img{
+          &:hover {
+            img {
               @include transition($t);
               @include transform(translate(-50%, -50%) scale(1.05));
             }
-            &::before{
+            &::before {
               opacity: 0.4;
               @include transition($t);
             }
           }
         }
-        .text{
-          .title{
+        .text {
+          .title {
             margin-bottom: 5px;
-            a{
+            a {
               @include text1(18px, pb, 24px, $black-cl, uppercase);
               text-decoration: none;
               height: 48px;
               @include overtext(2);
               @include transition($t);
-              &:hover{
+              &:hover {
                 color: $yellow-cl;
                 @include transition($t);
               }
             }
-            &::before{
+            &::before {
               content: "";
               background: $yellow-cl;
               width: 80px;
@@ -695,7 +696,7 @@
               margin: 25px 0 20px 0;
             }
           }
-          p{
+          p {
             height: 60px;
             line-height: 19px;
             @include overtext(3);
@@ -703,24 +704,24 @@
         }
       }
     }
-    @include tablet{
+    @include tablet {
     }
-    @include mobile{
-      &__list{
+    @include mobile {
+      &__list {
         grid-template-columns: 1fr;
-        &-textbox{
-          &:not(:last-child){
+        &-textbox {
+          &:not(:last-child) {
             margin-bottom: 40px;
           }
-          .text{
-            .title{
+          .text {
+            .title {
               margin-bottom: 20px;
-              a{
+              a {
                 height: auto;
                 @include overtext(initial);
               }
             }
-            p{
+            p {
               height: auto;
               @include overtext(initial);
             }
@@ -731,16 +732,51 @@
   }
   /** ------------------------------- 
     Component Image move
-  */ 
-  .photos{
+  */
+  .photos {
     display: flex;
     align-items: center;
     padding-top: 0;
-    img{
+    img {
       margin: 0 15px;
       max-width: 100%;
       min-width: 500px;
       overflow: hidden;
     }
+  }
+}
+
+.popup-video {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  .iframe-wrap {
+    width: 100%;
+    height: 100%;
+    border: 5px solid $white-cl;
+    position: relative;
+    max-width: 750px;
+    max-height: 400px;
+  }
+  .close {
+    position: absolute;
+    right: -12px;
+    top: -12px;
+    background: $white-cl;
+    color: $black-cl;
+    font-size: 20px;
+    font-family: pb;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    @include mid(true);
   }
 }
