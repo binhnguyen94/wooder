@@ -1,0 +1,156 @@
+.jquery{
+    .title{
+        font-size: 30px;
+        font-family: pb;
+        text-transform: uppercase;
+        color: $yellow-cl;
+        padding: 15px 15px;
+        letter-spacing: 2px;  
+    }
+    .accordion{
+        margin: 10px 0;
+        &__title{
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            display: flex;
+            font-family: pb;
+            background: $yellow-cl;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            &::after{
+                content: '';
+                width: 15px;
+                height: 15px;
+                background: url('../img/right-arrow.svg') no-repeat;
+                display: block;
+                position: absolute;
+                right: 25px;
+                width: 12px;
+                height: 12px;
+                top: calc(50% - 5px);
+                @include transition($t);
+            }
+            &.active{
+                &::after{
+                    @include transform(rotate(90deg));
+                    @include transition($t);
+                }
+            }
+        }
+        .content{
+            display: none;
+            padding: 0 40px;
+            line-height: 20px;
+            background: $yellow-cl;
+        }  
+    }
+    .tabs{
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            padding: 15px 0;
+            li{
+                height: 80px;
+                display: flex;
+                align-items: center;
+                a{
+                    text-decoration: none;
+                     color: $black-cl;
+                    font-family: pb;
+                    font-size: 25px;
+                    &.active{
+                        color: red;
+                    }
+                }
+            }
+        }
+        &__content{
+            .panel{
+               display: none;
+                .image{
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-auto-rows: 200px;
+                    gap: 15px;
+                    img{
+                        min-height: 100%;
+                    }
+                }
+                &.active{
+                    display: block;
+                } 
+            }
+        }
+    }
+    .tags{
+        .list{
+            position: relative;
+            .tag input[type="text"]{
+                position: absolute;
+                top:50%;
+                left: 5px;
+                transform: translate(0, -50%);
+                background:#54b182;
+                padding: 5px 10px;
+                border-radius:3px;
+                margin-right: 5px;
+                span{
+                    padding-left: 5px;
+                    cursor: pointer;
+                    &:hover{
+                        opacity: 0.7;
+                    }
+                }
+            }
+            input{
+                width: 100%;
+                height: 40px;
+                background-color: #fff;
+                border: 1px solid #ccc;
+                // box-shadow: inset 0 1px 1px rgb(0 0 0 8%);
+                display: inline-block;
+                padding: 4px 6px;
+                color: #555;
+                vertical-align: middle;
+                border-radius: 4px;
+                width: 100%;
+                line-height: 22px;
+                cursor: text;
+            }
+        }
+    }
+    form{
+        padding-bottom: 90px;
+        .form-group{
+            margin-bottom: 10px;
+            label{
+                display: block;
+                padding: 5px;
+            }
+            .form-control{
+                width: 100%;
+                height: 35px;
+                border-radius: 5px;
+                &.content{
+                    height: 100px;
+                }
+            }
+            .error{
+                color: red;
+                margin-top: 5px;
+            }
+        }
+        .btn{
+            width: 100px;
+            height: 35px;
+            border-radius: 5px;
+            background: yellowgreen;
+            &:hover{
+                background: red;
+            }
+        }
+    }
+}

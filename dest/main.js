@@ -63,9 +63,9 @@ function scrollToTop(){
 
 backToTop.addEventListener('click', function(){
     window.scrollTo({
-        top: 0
-    })
-})
+        top: 0,
+    });
+});
 
 document.addEventListener('scroll', function(){
     showBg();
@@ -187,3 +187,6 @@ popupVideo.addEventListener('click', function(e){
     iframe.setAttribute('src', '');
     popupVideo.style.display = 'none';
 })
+
+
+
