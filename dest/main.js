@@ -72,6 +72,7 @@ document.addEventListener('scroll', function(){
     scrollToTop();
 })
 
+// --------------------------------------------------------------
 // Select Menu scroll 
 let menu = document.querySelectorAll('header .menu a');
 let sections = [];
@@ -113,55 +114,65 @@ window.addEventListener('scroll', function(e){
 });
 
 
-// ------------------------------------------
-// Thực hiện chuyển trang trên silder
-let listSlider = document.querySelectorAll('.slider__images-item');
-let currentSlider = 0
-let numberSlider = document.querySelector('.slider__bottom .paging .number');
-let dot = document.querySelectorAll('.slider__bottom ul li');
-listSlider.forEach(function(itemSlider, index){
-    if(itemSlider.classList.contains('active')){
-        currentSlider = index;
-    }
-});
-// thay đổi number khi chuyển slider
-function changeNumber(index){
-    numberSlider.innerHTML = (index).toString().padStart(2, '0');
-}
-// default active
-changeNumber(currentSlider + 1);
-dot[currentSlider].classList.add('active');
+// // ------------------------------------------
+// // Thực hiện chuyển trang trên silder
+// let listSlider = document.querySelectorAll('.slider__images-item');
+// let currentSlider = 0
+// let numberSlider = document.querySelector('.slider__bottom .paging .number');
+// let dot = document.querySelectorAll('.slider__bottom ul li');
+// listSlider.forEach(function(itemSlider, index){
+//     if(itemSlider.classList.contains('active')){
+//         currentSlider = index;
+//     }
+// });
+// // thay đổi number khi chuyển slider
+// function changeNumber(index){
+//     numberSlider.innerHTML = (index).toString().padStart(2, '0');
+// }
+// // default active
+// changeNumber(currentSlider + 1);
+// dot[currentSlider].classList.add('active');
 
-// thực hiện btn next - prev
-function goTo(index){
-    listSlider[currentSlider].classList.remove('active');
-    listSlider[index].classList.add('active');
-    dot[currentSlider].classList.remove('active');
-    dot[index].classList.add('active');
-    currentSlider = index;
-    changeNumber(currentSlider + 1);
-}
-document.querySelector('.control .--next').addEventListener('click', function(){
-    if(currentSlider < listSlider.length - 1){
-        goTo(currentSlider + 1);
-    } else{
-        goTo(0);
-    }
-});
-document.querySelector('.control .--prev').addEventListener('click', function(){
-    if(currentSlider > 0){
-        goTo(currentSlider - 1)
-    }else{
-        goTo(listSlider.length - 1)
-    }
-});
+// // thực hiện btn next - prev
+// function goTo(index){
+//     listSlider[currentSlider].classList.remove('active');
+//     listSlider[index].classList.add('active');
+//     dot[currentSlider].classList.remove('active');
+//     dot[index].classList.add('active');
+//     currentSlider = index;
+//     changeNumber(currentSlider + 1);
+// }
+// document.querySelector('.control .--next').addEventListener('click', function(){
+//     if(currentSlider < listSlider.length - 1){
+//         goTo(currentSlider + 1);
+//     } else{
+//         goTo(0);
+//     }
+// });
+// document.querySelector('.control .--prev').addEventListener('click', function(){
+//     if(currentSlider > 0){
+//         goTo(currentSlider - 1)
+//     }else{
+//         goTo(listSlider.length - 1)
+//     }
+// });
 
-// Function click dot thì chuyển Slider
-dot.forEach(function(e, index){
-    e.addEventListener('click', function(){
-        goTo(index);
-    });
-});
+// // Function click dot thì chuyển Slider
+// dot.forEach(function(e, index){
+//     e.addEventListener('click', function(){
+//         goTo(index);
+//     });
+// });
+
+// sử dụng library Flickity vào slider
+let $carousel = $('.slider__images');
+$carousel.flickity({
+    // option
+    cellAlign: 'left',
+    contain: true,
+    wrapAround: true,
+    prevNextButtons: false,
+})
 
 // -------------------------------
 // Event popup video
