@@ -172,7 +172,29 @@ $carousel.flickity({
     contain: true,
     wrapAround: true,
     prevNextButtons: false,
-})
+    on:{
+        ready: function(){
+            let dotted = $('.flickity-page-dots');
+            let paging = $('.slider__bottom .paging .dotted');
+            console.log(paging);
+            dotted.appendTo(paging);
+        },
+        change: function(index){
+            let number = $('.slider__bottom .number');
+            let indexPage = index + 1;
+            number.text(indexPage.toString().padStart(2, 0));
+        }
+    }
+});
+
+$('.slider__bottom .--prev').on('click', function(){
+    $carousel.flickity('previous');
+});
+
+$('.slider__bottom .--next').on('click', function(){
+    $carousel.flickity('next');
+});
+
 
 // -------------------------------
 // Event popup video
