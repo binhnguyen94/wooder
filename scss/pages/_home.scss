@@ -800,6 +800,13 @@
         }
       }
     }
+    @include mobile {
+      &__list {
+        img {
+          height: 200px;
+        }
+      }
+    }
   }
 }
 
