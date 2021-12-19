@@ -36,16 +36,30 @@ let header = document.querySelector('header');
 let slider = document.querySelector('.slider');
 let heightSlider = slider.clientHeight;
 let heightHeader = header.clientHeight;
+// Show process header when scroll
+let headProcess = $('.header-process');
+let pageHeight = $(document).height() - $(window).height();
+
+let scrollHeader = heightSlider - heightHeader;
+
 
 function showBg(){
     let scrollY = window.pageYOffset;
-    // console.log(heightSlider);
-    if(scrollY > (heightSlider - heightHeader)){
+    // let scrollTop = $(window).scrollTop();
+    let process = scrollY / pageHeight * 100;
+
+    if(scrollY > scrollHeader){
         header.classList.add('active');
+        headProcess.css({
+            width: process + '%'
+        })
     }else{
         header.classList.remove('active');
     }
 }
+
+
+
 
 // Scroll Back To Top
 let backToTop = document.querySelector('.totop');
@@ -102,7 +116,6 @@ menu.forEach(function(element, index){
 // Chức năng thực hiện scroll tới đâu thì active menu tới đó
 window.addEventListener('scroll', function(e){
     let positionScroll = window.pageYOffset;
-
     sections.forEach(function(section, index){
         if(positionScroll > (section.offsetTop - heightHeader) && positionScroll < (section.offsetTop + section.offsetHeight)){
             removeActiveMenu();
@@ -112,6 +125,8 @@ window.addEventListener('scroll', function(e){
         };
     });
 });
+
+
 
 
 // // ------------------------------------------
@@ -176,7 +191,6 @@ $carousel.flickity({
         ready: function(){
             let dotted = $('.flickity-page-dots');
             let paging = $('.slider__bottom .paging .dotted');
-            console.log(paging);
             dotted.appendTo(paging);
         },
         change: function(index){
@@ -193,6 +207,21 @@ $('.slider__bottom .--prev').on('click', function(){
 
 $('.slider__bottom .--next').on('click', function(){
     $carousel.flickity('next');
+});
+
+// photo free scroll & process cho timeline
+let $carousel_01 = $('.photos__list');
+let processBar = $('.photos__control .process');
+$carousel_01.flickity({
+    cellAlign: 'left',
+    contain: true,
+    freeScroll: true,
+    prevNextButtons: false,
+    pageDots: false,
+})
+$carousel_01.on( 'scroll.flickity', function( event, progress ) {
+    progress = Math.max( 0, Math.min( 1, progress ) );
+    processBar.width( progress * 100 + '%' );
 });
 
 
@@ -220,6 +249,7 @@ popupVideo.addEventListener('click', function(e){
     iframe.setAttribute('src', '');
     popupVideo.style.display = 'none';
 })
+
 
 // click popup hình ảnh Gallery
 var initPhotoSwipeFromDOM = function(gallerySelector) {

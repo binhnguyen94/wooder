@@ -148,11 +148,24 @@ header {
                 }
             }
         }
+        .header-process{
+            display: none;
+        }
     }
     &.active{
         background: $black-bg-cl;
         opacity: 0.7;
         @include transition($t);
+        .header-process{
+            display: block;
+            width: 0%;
+            height: 3px;
+            background-color: $yellow-cl;
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            z-index: 601;
+        }
     }  
 }
 @include desktop{

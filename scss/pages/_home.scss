@@ -31,7 +31,7 @@
             @include transform(translateY(30px));
             @include transition-delay(0.4s);
           }
-          .btnmain{
+          .btnmain {
             opacity: 0;
             visibility: hidden;
             @include transition(0.3s);
@@ -44,17 +44,16 @@
           width: 100%;
           @include midimg(initial);
         }
-        &.is-selected{
-          .text{
-            h2{
+        &.is-selected {
+          .text {
+            h2 {
               opacity: 1;
               visibility: visible;
               @include transition(1s);
               @include transform(translateY(0px));
               @include transition-delay(0.4s);
-
             }
-            .btnmain{
+            .btnmain {
               opacity: 1;
               visibility: visible;
               @include transition(1s);
@@ -644,7 +643,6 @@
           gap: 7px;
         }
       }
-      
     }
   }
   /** ------------------------------- 
@@ -764,14 +762,42 @@
   */
   .photos {
     padding-top: 0;
-    &__list{
+    &__list {
       display: flex;
       align-items: center;
       img {
+        width: 50%; /* half-width */
+        height: 400px;
+        margin-right: 10px;
         margin: 0 15px;
-        max-width: 100%;
-        min-width: 500px;
+        // max-width: 100%;
+        // min-width: 500px;
+        // overflow: hidden;
+      }
+    }
+    &__control {
+      width: 220px;
+      margin: 40px auto 0 auto;
+      text-align: center;
+      span {
+        font-size: 12px;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+      }
+      .timeline {
+        height: 3px;
+        background: #d8d8d8;
+        border-radius: 10px;
+        margin: 5px 15px;
+        position: relative;
         overflow: hidden;
+        .process {
+          width: 5%;
+          height: 100%;
+          background: $yellow-cl;
+          position: absolute;
+          left: 0;
+        }
       }
     }
   }
